@@ -36,15 +36,15 @@ function Login() {
                     </Center>
                     <Box>
                         <ButtonGroup gap='5' marginTop={2} >
-                            <Button bg="rgb(255,255,255)" border="1px solid">
+                            <Button bg="rgb(255,255,255)" border=".5px solid">
                                 <Image w={6} src="https://staffordonline.org/wp-content/uploads/2019/01/Google.jpg" />
                                 Google
                             </Button>
-                            <Button bg="rgb(255,255,255)" border="1px solid">
+                            <Button bg="rgb(255,255,255)" border=".5px solid">
                                 <Image w={6} src="https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png" />
                                 Sign in With Apple
                             </Button>
-                            <Button bg="rgb(255,255,255)" border="1px solid">
+                            <Button bg="rgb(255,255,255)" border=".5px solid">
                                 <Image w={6} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg/768px-Microsoft_Office_logo_%282019%E2%80%93present%29.svg.png" />
                                 Office
                             </Button>
