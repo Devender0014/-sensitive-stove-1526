@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 // import './App.css';
+import Footer from './Pages/Footer';
 import Login from './Pages/LoginPage';
 import Navbar from './Pages/Navbar';
 
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
         {/* <Navbar/> */}
         <Login/>
+        <Footer/>
     </div>
   );
 }
