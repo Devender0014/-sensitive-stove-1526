@@ -36,7 +36,7 @@ function Login() {
                     </Center>
                     <Box>
                         <ButtonGroup gap='5' marginTop={2} >
-                            <Button bg="rgb(255,255,255)" border=".5px solid">
+                            <Button bg="rgb(255,255,255)" border=".5px solid"> 
                                 <Image w={6} src="https://staffordonline.org/wp-content/uploads/2019/01/Google.jpg" />
                                 Google
                             </Button>
