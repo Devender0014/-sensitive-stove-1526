@@ -1,19 +1,19 @@
-import { Flex, Box, Spacer, VStack, Text, Image } from "@chakra-ui/react"
+import { Flex, Box, Spacer, VStack, Text, Image, Tooltip, Divider} from "@chakra-ui/react"
 
 
 
 function Footer() {
 
     const style = {
-        backgroundColor : "rgb(12,50,69)",
-        padding : "10px",
-        color : "white"
+        backgroundColor: "rgb(12,50,69)",
+        padding: "10px",
+        color: "white"
     }
 
 
     return (
         <div style={style}>
-            <Flex w="90%" margin="auto" >
+            <Flex w="90%" margin="auto" marginBottom="20px">
                 <Box w='100px' >
                     <VStack alignItems="flex-start">
                         <Text fontSize='lg' as='b'>Product</Text>
@@ -82,8 +82,8 @@ function Footer() {
                                     <Text fontSize='md' as='u'>Show More</Text>
                                 </VStack>
                             </Box>
-                            <Spacer/>
-                            <Box w='150px'marginLeft="40px" >
+                            <Spacer />
+                            <Box w='150px' marginLeft="40px" >
                                 <VStack alignItems="flex-start">
                                     <Text fontSize='md'>Professional Services Guide</Text>
                                     <Text fontSize='md'>Agile Guide</Text>
@@ -103,16 +103,19 @@ function Footer() {
                     </Box>
                 </Box>
             </Flex>
-            <Flex w="90%" margin="auto" marginTop="40px">
-                <Image w={40} margin="10px" src="https://web-static.wrike.com/tp/static/assets/img/footer/apple_en.svg"/>
-                <Image w={40} src="https://web-static.wrike.com/tp/static/assets/img/footer/google_play_en.svg"/>
-                <Spacer/>
-                <Image w={8} h={8} padding="5px" src="https://cdn-icons-png.flaticon.com/512/81/81609.png"/>
-                <Image w={8} h={8} padding="5px"  src="https://cdn-icons-png.flaticon.com/512/44/44646.png"/>
-                <Image w={8} h={8} padding="5px"  src="https://cdn.icon-icons.com/icons2/2389/PNG/512/linkedin_in_logo_icon_145103.png"/>
-                <Image w={8} h={8} padding="5px"  src="https://cdn-icons-png.flaticon.com/512/48/48968.png"/>
-                <Image w={8} h={8}  padding="5px" src="https://cdn-icons-png.flaticon.com/512/87/87390.png"/>
-                <Spacer/>
+            <Divider width="90%" margin="auto"/>
+            <Flex w="90%" margin="auto" marginTop="20px">
+                <Image w={40} margin="10px" src="https://web-static.wrike.com/tp/static/assets/img/footer/apple_en.svg" />
+                <Image w={40} src="https://web-static.wrike.com/tp/static/assets/img/footer/google_play_en.svg" />
+                <Spacer />
+                <Flex alignItems="center">
+                    <Image w={8} h={8} padding="5px" src="https://cdn-icons-png.flaticon.com/512/81/81609.png" />
+                    <Image w={8} h={8} padding="5px" src="https://cdn-icons-png.flaticon.com/512/44/44646.png" />
+                    <Image w={8} h={8} padding="5px" src="https://cdn.icon-icons.com/icons2/2389/PNG/512/linkedin_in_logo_icon_145103.png" />
+                    <Image w={8} h={8} padding="5px" src="https://cdn-icons-png.flaticon.com/512/48/48968.png" />
+                    <Image w={8} h={8} padding="5px" src="https://cdn-icons-png.flaticon.com/512/87/87390.png" />
+                </Flex>
+                <Spacer />
                 <VStack>
                     <Text>©2006-2022 Wrike, Inc. All rights reserved. Patented.</Text>
                     <Text>Privacy Policy. Terms of Service. Cookie Preferences</Text>

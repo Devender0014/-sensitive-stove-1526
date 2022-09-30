@@ -8,15 +8,19 @@ function Navbar() {
         width: "80%",
         margin: "auto",
         justifyContent: "space-between",
-        padding : "10px"
+        padding : "10px",
     }
 
     const white = {
         color : "white"
     }
+    const main = {
+        backgroundColor : "rgb(12,50,69)"
+
+    }
 
     return (
-        <div>
+        <div style={main}>
             <HStack style={style}>
                 <HStack spacing='24px'>
                     <Box w='100px' h='40px' bg=''>
@@ -92,7 +96,7 @@ function Navbar() {
                     <Box w='80px' bg='#0c324' color="rgb(3,207,101)">
                         Log In
                     </Box>
-                    <Button backgroundColor="rgb(3,207,101)" >Start For Free</Button>
+                    <Button backgroundColor="rgb(3,207,101)" style={white} >Start For Free</Button>
                 </HStack>
             </HStack>
         </div>
