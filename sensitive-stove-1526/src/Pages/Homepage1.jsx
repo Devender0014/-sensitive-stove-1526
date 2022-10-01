@@ -51,10 +51,14 @@ const style = {
                         <Image w="500px" borderRadius="50% 0 0 0"  src="https://web-static.wrike.com/cdn-cgi/image/format=auto,quality=80,width=496,dpr=2/tp/storage/uploads/8217f185-4a7a-4743-a531-15b6875d0c67/rebrand-quote-slider-image-walmart-canada-2x.jpg"/>
                     </Box>
                     <Box width="50%">
+                        
                         <Text fontSize="4xl" >
                             "Everyone is in wrike daily, we've built one story nd one version of the truth. And that is a game changer for us. Now we do our project reviews in Wrike: no more need for presentations, word documents or any of the additional work."
                         </Text >
-                        <Text fontSize="xl" padding="5px">Francis Lalonde, Vice President of Transportation, Walmart canada </Text>
+                        <Flex>
+                            <Text fontSize="xl" padding="5px">Francis Lalonde, Vice President of Transportation, Walmart canada </Text>
+                            <Image src="https://web-static.wrike.com/tp/storage/uploads/d114cd4b-e55a-4f16-a017-4f64bde5d985/rebrand-quote-logo-walmart-canada-white.svg"/>
+                        </Flex>
                         <Button color="rgb(3,207,101)" background="none" fontSize="lg">Watch Walmart Canada's story</Button>
                     </Box>
                 </Flex>
