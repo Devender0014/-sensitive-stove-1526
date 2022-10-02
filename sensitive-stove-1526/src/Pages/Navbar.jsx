@@ -1,22 +1,36 @@
 import { Image, HStack, Box, Select, Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { LoginContextProvider } from '../PrivateContext'
+import { loginObj } from '../utils'
 
 
 
 function Navbar() {
+    const { setReloadState, userCred, setUserCred } = useContext(LoginContextProvider)
+    const navigator = useNavigate()
 
     const style = {
         width: "80%",
         margin: "auto",
         justifyContent: "space-between",
-        padding : "10px",
+        padding: "10px",
     }
 
     const white = {
-        color : "white"
+        color: "white"
     }
     const main = {
-        backgroundColor : "rgb(12,50,69)"
+        backgroundColor: "rgb(12,50,69)"
 
+    }
+    const handleButtonClick = () => {
+        if (!userCred.email && !userCred.password) {
+            navigator('/login')
+        }
+        localStorage.removeItem('cred');
+        setUserCred(loginObj)
+        setReloadState(e => !e)
     }
 
     return (
@@ -61,27 +75,27 @@ function Navbar() {
                             <MenuButton >
                                 LEARN MORE
                             </MenuButton>
-                                <MenuItem>Download</MenuItem>
-                                <MenuItem>Create a Copy</MenuItem>
-                                <MenuItem>Mark as Draft</MenuItem>
-                                <MenuItem>Delete</MenuItem>
-                                <MenuItem>Attend a Workshop</MenuItem>
+                            <MenuItem>Download</MenuItem>
+                            <MenuItem>Create a Copy</MenuItem>
+                            <MenuItem>Mark as Draft</MenuItem>
+                            <MenuItem>Delete</MenuItem>
+                            <MenuItem>Attend a Workshop</MenuItem>
                             <MenuButton>
                                 ABOUT
                             </MenuButton>
-                                <MenuItem>Partners</MenuItem>
-                                <MenuItem>Company</MenuItem>
-                                <MenuItem>Careers</MenuItem>
-                                <MenuItem>Newsroom</MenuItem>
-                                <MenuItem>Events</MenuItem>
+                            <MenuItem>Partners</MenuItem>
+                            <MenuItem>Company</MenuItem>
+                            <MenuItem>Careers</MenuItem>
+                            <MenuItem>Newsroom</MenuItem>
+                            <MenuItem>Events</MenuItem>
                             <MenuButton >
                                 SUPPORT
                             </MenuButton>
-                                <MenuItem>Professional Services</MenuItem>
-                                <MenuItem>Help Center</MenuItem>
-                                <MenuItem>Community</MenuItem>
-                                <MenuItem>Interactive Training</MenuItem>
-                                <MenuItem>Support Packages</MenuItem>
+                            <MenuItem>Professional Services</MenuItem>
+                            <MenuItem>Help Center</MenuItem>
+                            <MenuItem>Community</MenuItem>
+                            <MenuItem>Interactive Training</MenuItem>
+                            <MenuItem>Support Packages</MenuItem>
                         </MenuList>
                     </Menu>
                 </HStack>
@@ -90,11 +104,11 @@ function Navbar() {
                         Contact Sales
                     </Box>
                     <Box w='80px' bg='#0c324' display="flex" justifyContent="center" alignItems="center">
-                       <Image w={4} src='https://cdn2.iconfinder.com/data/icons/electronic-line-3/64/global_Earth_language_international_interface_icon0A-512.png' />
-                       <p style={white}>EN</p>
+                        <Image w={4} src='https://cdn2.iconfinder.com/data/icons/electronic-line-3/64/global_Earth_language_international_interface_icon0A-512.png' />
+                        <p style={white}>EN</p>
                     </Box>
-                    <Box w='80px' bg='#0c324' color="rgb(3,207,101)">
-                        Log In
+                    <Box onClick={handleButtonClick} w='80px' bg='#0c324' color="rgb(3,207,101)">
+                        {userCred?.email && userCred?.password ? 'Log Out' : 'Log In'}
                     </Box>
                     <Button backgroundColor="rgb(3,207,101)" style={white} >Start For Free</Button>
                 </HStack>
