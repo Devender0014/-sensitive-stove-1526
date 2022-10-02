@@ -1,33 +1,60 @@
 import {
     FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText,
     Input,
     Box,
     Image,
     Button,
     Center,
-    HStack,
     ButtonGroup,
     Text,
     Square,
     Flex
 } from '@chakra-ui/react'
+import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { LoginContextProvider } from '../PrivateContext';
 
 
 
 function Login() {
 
+    const [isEmailExiset, setIsEmailExist] = useState(false);
+    const { setReloadState } = useContext(LoginContextProvider)
+    const [cred, setCred] = useState({
+        email: '',
+        password: ''
+    })
+    const navigator = useNavigate()
 
+    const handleChange = (e) => {
+        const { value, name } = e.target;
+        setCred({
+            ...cred,
+            [name]: value
+        })
+    }
+
+    const handleNextClick = () => {
+        if (!cred.email) {
+            return;
+        }
+        if (!cred.password) {
+            setIsEmailExist(true)
+            return;
+        }
+        localStorage.setItem('cred', JSON.stringify(cred));
+        setReloadState(e => !e)
+        navigator('/')
+    }
 
     return (
         <div>
             <Box w="35%" margin="auto" marginTop="100px" padding="40px" borderWidth='1px'>
                 <Image w="30%" margin="auto" padding={4} src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Wrike_Logo.svg/2560px-Wrike_Logo.svg.png" />
                 <FormControl isRequired>
-                    <Input placeholder='Email or Corporate Id' marginTop={5} p="20px" />
-                    <Button w="100%" bg="rgb(68,135,255)" color="white" marginTop={5} p="20px">Next</Button>
+                    {!isEmailExiset && <Input value={cred?.email} name={'email'} type="email" placeholder='Email or Corporate Id' onChange={handleChange} marginTop={5} p="20px" />}
+                    {isEmailExiset && <Input value={cred?.password} name={'password'} type="password" placeholder='Password' onChange={handleChange} marginTop={5} p="20px" />}
+                    <Button onClick={handleNextClick} w="100%" bg="rgb(68,135,255)" color="white" marginTop={5} p="20px">{isEmailExiset ? 'Login' : 'Next'}</Button>
                     <Center color='rgb(68,135,255)' marginTop={8}>
                         Forgot Password ?
                     </Center>
@@ -36,7 +63,7 @@ function Login() {
                     </Center>
                     <Box>
                         <ButtonGroup gap='5' marginTop={2} >
-                            <Button bg="rgb(255,255,255)" border=".5px solid"> 
+                            <Button bg="rgb(255,255,255)" border=".5px solid">
                                 <Image w={6} src="https://staffordonline.org/wp-content/uploads/2019/01/Google.jpg" />
                                 Google
                             </Button>
